@@ -9,11 +9,26 @@ function App() {
   ]);
 
   const [input, setInput] = useState('');
+
+  const addTodo = (e) => {
+    // this will work when button is clicked and ... is appending it to the current state
+    e.preventDefault();
+    setTodos([...todos, input]);
+    // this will clear the input field after submitting
+    setInput('');
+  };
+
+  // anything typed is stored in the variable input and is being set to the value
   return (
     <div className="App">
       <h1>hello world!</h1>
-      <input />
-      <button>Add to list</button>
+
+      <form>
+        <input value={input} onChange={(e) => setInput(e.target.value)} />
+        <button type="submit" onClick={addTodo}>
+          Add to list
+        </button>
+      </form>
 
       <ul>
         {todos.map((todo) => (
