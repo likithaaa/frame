@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
-import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Todo from './Todo';
 
 function App() {
   const [todos, setTodos] = useState([
@@ -29,14 +29,19 @@ function App() {
       <form>
         <input value={input} onChange={(e) => setInput(e.target.value)} />
 
-        <button onClick={addTodo} type="submit" class="btn btn-warning">
+        <button
+          onClick={addTodo}
+          type="submit"
+          disabled={!input}
+          class="btn btn-warning"
+        >
           add to list
         </button>
       </form>
 
       <ul>
         {todos.map((todo) => (
-          <li>{todo}</li>
+          <Todo list={todo} />
         ))}
       </ul>
     </div>
