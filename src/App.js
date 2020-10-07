@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [todos, setTodos] = useState([
@@ -21,12 +23,14 @@ function App() {
   // anything typed is stored in the variable input and is being set to the value
   return (
     <div className="App">
-      <h1>hello world!</h1>
+      <h1>FRAME</h1>
+      <h3>your day with a list of goals, chores, deadlines and even meals! </h3>
 
       <form>
         <input value={input} onChange={(e) => setInput(e.target.value)} />
-        <button type="submit" onClick={addTodo}>
-          Add to list
+
+        <button onClick={addTodo} type="submit" class="btn btn-warning">
+          add to list
         </button>
       </form>
 
